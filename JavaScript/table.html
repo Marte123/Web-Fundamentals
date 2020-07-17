@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click to enter the number of columns and rows in the table.</p>
+
+<button onclick="myFunction()">CLICK</button>
+
+<style>
+  .table {
+	border-collapse: collapse;
+  }
+  
+  .cell {
+	height: 32px;
+	width: 32px;
+	background: silver;
+	border: 1px solid gray;
+  }
+  
+  .selected {
+	border: 1px solid red;
+  }
+</style>
+
+<script>
+function myFunction() {
+	var rows = '';
+	var cols = '';
+	
+	while (isNaN(Number(rows)) || rows == '') {
+		rows = prompt("Please enter number of rows");
+	}
+	
+    while (isNaN(Number(cols)) || cols == '') {
+		cols = prompt("Please enter number of cols");
+	}
+	
+	var rowsValid = rows >= 5 && rows <= 20;
+	var colsValid = cols >= 10 && cols <= 40;
+	
+	if (rowsValid && colsValid) {
+		makeTableA()
+		makeTableB(rows, cols)
+	}
+}
+
+let selImage = ''
+let selected = []
+
+function makeTableA() {
+	var table = document.getElementById('tableA')
+	var tr = table.insertRow(0)
+	for (let i=0; i<=15; i++) {
+		let td = tr.insertCell(i)
+		td.className = 'cell'
+		td.style.backgroundImage = 'url("./images/sprite' + (i+1) + '.gif")'
+		td.id = 's' + i
+		
+		selected.push(false)
+		
+		td.onclick = function() {
+			clearBorder(i)
+			selected[i] = !selected[i]
+			
+			if (selected[i]) {
+				selImage = td.style.backgroundImage
+				td.className = 'cell selected'
+			} else {
+				selImage = ''
+				td.className = 'cell'
+			}
+		}
+	}
+}
+
+function clearBorder(current) {
+	for (let i=0; i<=15; i++) {
+		if (current !== i) {
+			var cell = document.getElementById('s' + i)
+			cell.className = 'cell'
+			selected[i] = false
+		}
+	}
+}
+
+function makeTableB(rows, cols) {
+	var table = document.getElementById('tableB')
+	
+	for (var i=0; i<rows; i++) {
+		var tr = table.insertRow(i)
+		for (var j=0; j<cols; j++) {
+			let td = tr.insertCell(j)
+			td.className = 'cell'
+			
+			td.onclick = function() {
+				if (selImage) {
+					td.style.backgroundImage = selImage
+				}
+			}
+		}
+	}
+}
+
+</script>
+<h2>Play</h2>
+  <table cellspacing="0" cellpadding="0" id="tableA" border="1"></table>
+  <br>
+  <table cellspacing="0" cellpadding="0" id="tableB" border="1"></table>
+</body>
+</html>
