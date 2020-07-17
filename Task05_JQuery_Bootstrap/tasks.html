@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tasks</title>
+    <meta charset="utf-8">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--  script src="scripts/jquery-3.2.1.min.js"></script> -->
+	
+	<style>
+		.category.active {
+			color: red;
+		}
+		
+		.task.active {
+			color: blue;
+		}
+	</style>
+
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+</head>
+<body class="boja">
+	<div class="container">
+		<h1 class="naslov">Tasks</h1>
+		<form id="form" class="naslov">
+			<input type="text" name="catName" id="catName"/>
+			<button name="poslji" onclick="addCat()" class="btn">Add</button>
+			<button name="poslji" onclick="removeCat()" class="btn">Delete</button>
+		</form>
+		<ul id="categories">
+		</ul>
+<!--Second part-->
+		<div class="vtorpart">
+		<input type="text" name="taskName" id="taskName"/>
+		<input type="button" name="poslji" value="Add" onclick="addTask(null, true)" class="btn" />
+		<br><br>
+		<table class="centerpos" id="tasks">
+			<tr><th>#</th><th>Description</th><th>Category</th><th>Date</th></tr>
+		</table>
+		<br>
+		<input type="button" name="poslji" value="Delete" onclick="removeTasks()" class="btn" />
+	</div>
+</div>
+	<script src="scripts/script.js"></script>
+</body>
+</html>

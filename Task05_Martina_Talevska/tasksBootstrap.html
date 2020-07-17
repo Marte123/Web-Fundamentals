@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tasks</title>
+    <meta charset="utf-8">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body class="background">.
+
+
+	<div class="container1">
+		<div class="row">
+			<h1 class="naslov1">Tasks</h1>
+
+		</div>
+
+		<div class="row">
+			 <div class="col-sm-6">
+			<form  class="nasredina">
+			 
+			<div class="input-group">
+			<input type="text" name="field" class="form-control" id = "field"/>
+			<input type="button" name="poslji" value="Add" onclick="addCategory()" class="btn btn-primary" />
+			<input type="button" name="poslji" value="Delete"  data-toggle="modal" data-target="#deleteCategoryModal" class="btn btn-danger "   /><!--ko ke pricni userot na kategorijata da mozi da sja izbrisi dodaenata kategorija-->
+		  </div>
+		</form>
+		</div>
+		<div class="col-sm-6">
+			<form  class="nasredina">
+				<div class="input-group">
+			<input type="text" name="field" class="form-control" id = "taskField"/>
+			<input type="button" name="poslji" value="Add" onclick="addTask()" class="btn btn-primary" />
+		</div>
+	</form>
+		</div>
+	</div>
+		
+		 <div class="row">
+		    <div class="col-sm-6">
+		      <ul class="list-group" id = "categories"> </ul class="list-group-item">
+		    </div>
+		    <div class="col-sm-6">
+		      		<table class="table" id = "tasks">
+						<tr><th scope="col">Description</th><th scope="col">Category</th><th scope="col">Date</th></tr>
+					
+					</table>
+		    </div>
+		</div>
+		<div class="row">
+			
+			<input type="button" name="poslji" value="Delete" class="btn btn-danger btndanger"  data-toggle="modal" data-target="#deleteTaskModal" />
+		</div>
+		<div class="row">
+			<h3 id="bojanaslov">OSS Exrcise 5 - jQuery and Bootstrap</h3>
+		</div>
+		
+		</form>
+		 <!-- Modal -->
+  <div class="modal fade" id="deleteCategoryModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+      	<div class="modal-header">
+          
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+          <h4 class="modal-title">Warning</h4></div>
+          <div class="modal-body">
+        <p>Are you sure you want to delete the selected category ?</p>
+      </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="removeCategory()">Delete</button>
+        
+          <button type="button" class="btn btn grey" data-dismiss="modal" >Cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteTaskModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+          <h4 class="modal-title">Warning</h4></div>
+          <div class="modal-body">
+        <p>Are you sure you want to delete the selected task ?</p>
+      </div>
+        
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="removeTask()">Delete</button>
+        
+          <button type="button" class="btn btn grey" data-dismiss="modal" >Cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+		</div>
+
+
+</body>
+
+<script type="text/javascript">
+    	var taskChoice;
+    	var myTasks = [];
+    	var myCategories = [];
+    	var choiceFromModal;
+    		
+    	
+    	window.onload = function () {
+    		//localStorage.setItem('myTasksFormStorage', JSON.stringify(myTasks));
+
+    		var table = document.getElementById("tasks");
+    		var list = document.getElementById("categories");
+    		
+    		var myTasksFromStorage = JSON.parse(localStorage.getItem('myTasksFormStorage'));
+    		var myCategoriesFromStorage = JSON.parse(localStorage.getItem('myCategoriesFromStorage'));
+    		
+    		if (myTasksFromStorage != null ) {
+    			myTasks = myTasksFromStorage;
+    			for (var i = 0 ; i < myTasks.length ; i++) {
+    				var row = document.createElement("tr");
+    				row.onclick = function(){
+          		  		if (row.classList.contains("bg-danger")) {
+          		  			row.classList.remove("bg-danger");
+          		  		} else {
+          		  			row.classList.add("bg-danger");          		  
+          		 		}
+    				};
+    				for (var j = 0 ; j < 3 ; j++) {
+    					var cell = row.insertCell(j);
+    					cell.scope = "col";
+    					cell.innerHTML = Object.values(myTasks[i])[j];
+    				}
+    				table.appendChild(row);
+    			}	
+    		} 
+
+    		if (myCategoriesFromStorage != null) {
+    			myCategories= myCategoriesFromStorage;
+    			for (var i = 0 ; i < myCategories.length ; i++) {
+    				var li = document.createElement("li");
+    				var item = list.appendChild(li);
+    				item.classList.add("list-group-item");
+    				item.innerHTML = myCategories[i];
+    				item.onclick = function () {
+          				  selectCategeory(this);
+       				};
+    			}
+    		}         
+   			
+		}
+
+    	function removeTask () {
+
+    		
+    		var oldTasks = document.getElementsByClassName("bg-danger");
+
+    		for (var i = 0 ; i < oldTasks.length ; i++) {
+    			/*myTasks = _.reject(myTasks, function(el) {
+    			 return el.date 
+    			 == oldTasks[i].getElementsByTagName("td")[2].innerHTML; 
+    			});*/
+    			myTasks = myTasks.filter(function(e) { 
+    				return e.date 
+    				!== oldTasks[i].getElementsByTagName("td")[2].innerHTML; 
+    			});
+    		}
+
+    		localStorage.setItem('myTasksFormStorage', JSON.stringify(myTasks));
+
+    		$('.bg-danger').remove();
+
+    	}
+    	
+
+    	function addTask () {
+    		var table = document.getElementById("tasks");
+    		var taskName = document.getElementById("taskField").value;
+
+    		var category = categoryChoice
+
+    		if (category != null && category != "" && taskName != "") {
+    			var newTask = {"name" : taskName , "category" : category , "date" : new Date().toUTCString()};
+
+    			var entry = document.createElement('tr');
+
+    			for (var i = 0 ; i < 3 ; i++) {
+					var cell = entry.insertCell(i);
+					cell.scope = "col";
+				cell.innerHTML = Object.values(newTask)[i];
+				}
+				entry.onclick = function () {
+          			 if (entry.classList.contains("bg-danger")) {
+          		 	 	entry.classList.remove("bg-danger");
+          			 } else {
+          		 	 	entry.classList.add("bg-danger");          		  
+          		 	}
+       			};
+				table.appendChild(entry);
+
+            	document.getElementById("taskField").value = "";
+
+           		myTasks.push(newTask);
+            	localStorage.setItem('myTasksFormStorage', JSON.stringify(myTasks));
+            }
+    	}
+
+        function addCategory () {
+
+    		var newCategory = document.getElementById("field").value;
+    		if (newCategory != "") {
+    			var list = document.getElementById("categories");
+
+    			var entry = document.createElement('li');
+
+				entry.appendChild(document.createTextNode(newCategory));
+				entry.classList.add("list-group-item");
+				list.appendChild(entry);
+			
+
+				entry.onclick = function () {
+          		  	selectCategeory(this);
+       			};
+
+            	document.getElementById("field").value = "";
+
+           		myCategories.push(newCategory);
+           	 localStorage.setItem('myCategoriesFromStorage', JSON.stringify(myCategories));
+       	    }
+    	}
+
+    	function removeCategory () {
+    		
+    		myCategories  = myCategories.filter(function(value, index, arr) {
+				   	return value != categoryChoice;
+				});
+
+    		localStorage.setItem('myCategoriesFromStorage', JSON.stringify(myCategories));
+
+			$('.active').remove();
+			categoryChoice = null;
+		}
+    	
+
+    	function selectCategeory (item) {
+
+    		var listItems = document.getElementById("categories").getElementsByTagName("li");
+    		if (item.classList.contains("active")) {
+    			item.classList.remove("active")
+    		} else {
+   				for (var i = 0 ; i < listItems.length ; i++) {
+        			listItems[i].classList.remove("active");
+    			}
+
+    			item.classList.add("active");
+    			categoryChoice = item.innerHTML;
+    		}
+    		
+    	}
+
+    </script>
+</html>

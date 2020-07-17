@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+	font-family: 'Open Sans', sans-serif;
+}
+.boja{
+	background-color: lightblue;
+}
+.naslov{
+    color: #a1a4a8;
+    line-height: 1.9;
+    font-weight: 600;
+    }
+
+.container{
+	text-align: center;
+	top: 50%;
+    left: 50%;
+     position: absolute;
+    transform: translate(-50%, -50%);
+	width: 100%;
+	height: 400px;
+	margin: 0 auto;
+}
+input{
+		padding:2px;
+		background-color: white;
+}
+.btn {
+	padding:2px;
+	background-color:grey;
+}
+
+li::before {
+    content: "•";
+    padding-right: 8px;
+}
+.centerpos{
+	text-align: center;
+	margin:0 auto;
+}
+.vtorpart{
+	margin-top: 2%;
+	
+	margin: 0 auto;
+}
+
+/*Starts CSS for second task*/
+.background{
+	background-color: white;
+}
+.naslov1{
+
+	margin: 0 auto;
+	width: 100%;
+	background-color: #0066ff;
+	text-align: center;
+}
+ul li {
+	list-style-type: none;
+}
+.container1{
+
+	text-align: center;
+	width: 80%;
+	height: 400px;
+	margin: 0 auto;
+}
+.nasredina{
+	text-align: left;
+	width: 100%;	
+}
+.row {
+	margin-top:2%;
+	margin-bottom:2%;
+}
+.list-group-item::before {
+    content: "";
+    
+}
+.row .nasredina{
+	width: 100%;
+}
+.btn-primary {
+    margin-left: 2%;
+    }
+#bojanaslov{
+		margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	background-color: grey;
+	padding: 9px;
+}
+.btndanger{
+	text-align: right;
+	margin-left: 94%;
+}
+.grey{
+	background-color: grey;
+}
+.modal-title{
+	text-align: left;
+	font-size: 25px;
+	font-weight: bold;
+}
+.modal-body{
+	text-align: left;
+}
