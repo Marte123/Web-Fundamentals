@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Exercise 4 - Form</title>
+	<meta charset="UTF-8"/>
+	<style>
+		.form_label{
+			margin-bottom: 10px;
+			display: inline-block;
+			width:120px;
+		}
+		
+		.error{
+			color: red;
+		}
+	</style>
+	<script>
+		var users = ["sandi", "milan", "john" ];
+	
+		function validate_username(){
+			var input_field = document.getElementById("username");
+			var input_value = input_field.value;
+			if(users.includes(input_value)){
+				document.getElementById("username_error").innerHTML = "Username already exists.";
+			}
+			else if(input_value.length < 5){
+				document.getElementById("username_error").innerHTML = "Username is too short.";
+			}
+			else if(input_value.length > 20){
+				document.getElementById("username_error").innerHTML = "Username is too long.";
+			}
+			else {
+				document.getElementById("username_error").innerHTML = "";
+			}
+		}
+		
+		
+		function validate_form(){
+			validate_username();	
+			if(document.getElementById("username_error").innerHTML != ""){
+				return false;
+			}
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<form onsubmit="return validate_form();">
+		<label class="form_label">Username:</label>
+			<input type="text" name="username" id="username" onchange="validate_username();"/> 
+			<label class="error" id="username_error"></label>
+		<br/>
+		<label class="form_label">E-mail:</label>
+			<input type="text" name="email" id="email"/>
+		<br/>
+		<label class="form_label">Password:</label>
+			<input type="password" name="password" id="password"/>
+			<br/>
+		<label class="form_label">Repeat password:</label>
+			<input type="password" name="repeat_password" id="repeat_password"> 
+		<br/>
+		<label class="form_label">Gender:</label> 
+			<input type="radio" name="gender" value="male" id="male" /><label for="male">male</label>
+			<input type="radio" name="gender" value="female" id="female" /><label for="female">female</label>
+		<br/>
+		<input type="submit" name="poslji" value="Send"/>
+	</form>
+</body>
+</html>

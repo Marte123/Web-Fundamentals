@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>Exercise 4 - Sample</title>
+	<meta charset="UTF-8"/>
+	<style>
+		ul{
+			list-style-type: none;
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		li{
+			background-color: silver;
+			margin: 5px;
+			padding: 5px;
+			height: 25px;
+		}
+		
+		.selected_item{
+			border: 2px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		function select_list_item(clicked_item){
+			var selected_items = document.getElementsByClassName("selected_item");
+			for(var i = 0; i < selected_items.length; i++){
+				selected_items[i].classList.remove("selected_item");
+			}
+		
+			if(clicked_item.classList.contains("selected_item")){
+				clicked_item.classList.remove("selected_item");
+			}
+			else {
+				clicked_item.classList.add("selected_item");
+			}
+		}
+	
+		document.write("<h1>Hello world!</h1>");
+		
+		/*var a = window.prompt("Please input a number:");
+		while(isNaN(a)){
+			a = window.prompt("Stop kidding me! Please input a number:");
+		}
+		a = parseInt(a);
+		console.log(a);
+		
+		var b = window.prompt("Please input a number:");
+		while(isNaN(b)){
+			b = window.prompt("Stop kidding me! Please input a number:");
+		}
+		b = parseInt(b);
+		console.log(b);
+		
+		var c = a + b;
+		console.log(c);*/
+		
+		var c = 10;
+		
+		document.write("<ul>");
+		for(var i=1; i<=c; i++){
+			document.write("<li onclick=\"select_list_item(this);\">"+i+". element</li>");
+		}
+		document.write("</ul>");
+		
+		
+	</script>
+</body>
+</html>

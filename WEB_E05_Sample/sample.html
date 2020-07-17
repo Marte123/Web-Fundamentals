@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>WEB Exercise 5</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			load();
+			$("li").click(function(){highlight(this);});
+			
+			$("#button_add").click(function(){
+				var novi = document.createElement("li");
+				novi.innerHTML = $("#element_input").val();
+				novi.classList.add("list-group-item");
+				$(novi).click(function(){highlight(this);});
+				$("ul").append(novi);
+				save();
+			});
+			
+			$("#button_delete").click(function(){
+				$(".active").remove();
+				save();
+			});
+			
+			save();
+		});
+		
+		function highlight(kliknjen){
+			$(kliknjen).toggleClass("active");
+		}
+		
+		function save(){
+			localStorage.setItem("list", $("ul").html());
+		}
+		
+		function load(){
+			if(localStorage.list){
+				$("ul").html(localStorage.list);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 bg-primary mb-2">
+				<h1 class="text-center">Page Title</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+				<div class="input-group">
+					<input type="text" class="form-control ml-2" name="input" id="element_input"/> 
+					<button type="button" class="btn btn-primary ml-2" id="button_add">Add</button>
+					<button type="button" class="btn btn-danger ml-2" id="button_delete">Delete</button>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-8">
+				<script>
+					var x = 10;
+					document.write("<ul class='list-group'>");
+					for(var i=0;i<x;i++){
+						document.write("<li class='list-group-item'>"+i+". element</li>");
+					}
+					document.write("</ul>");
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
