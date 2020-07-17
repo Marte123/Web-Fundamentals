@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Martina's Talevska Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header>
+
+<h1>Martina's Talevska Website</h1>
+<nav>
+<ul>
+  <a href="index.html"><li>Home</li></a>
+  <a href="cars.html"><li>Cars</li></a>
+  <a href="survey.html"><li>Survey</li></a>
+  <a href="https://estudij.um.si"><li>Exercises</li></a>
+</ul>
+</nav>
+</header>
+<div class="card" id="content" class="center">
+
+<form action="/survey.html" target="_blank" method="GET">
+<table style="width:10%">
+  <tr>
+    <th>Fullname:</th>
+    <th><input type="text" name="fullname" placeholder="FullName"></th> 
+  </tr>
+  <tr>
+    <th>City:</th>
+    <td><form action="/action_page.php" method="get" placeholder="City">
+  <input list="cities" name="city">
+  <datalist id="cities">
+    <option value="Ljubljana">
+    <option value="Maribor">
+    <option value="Celje">
+    <option value="Koper">
+    <option value="Ptuj">
+  </datalist>
+</form> 
+</td> 
+</tr>
+<tr>
+	<th>E-mail:</th> 
+    <th> <input type="text" name="email"></th> 
+  </tr>
+  </table>
+    <p>Vehicle type:</p>
+  <form>
+  <input type="radio" name="car" value="limousine">Limousine
+  <input type="radio" name="car" value="suv">SUV
+   <input type="radio" name="car" value="sedan">Sedan
+  <input type="radio" name="car" value="hatchback">Hatchback
+  <input type="radio" name="car" value="crossover">Crossover
+  <input type="radio" name="car" value="convertible">Convertible
+
+    <p> Favorite brands: </p>
+   <form>
+  <input type="checkbox" name="vehicle1" value="audi">Audi
+  <input type="checkbox" name="vehicle2" value="mazda">Mazda
+  <input type="checkbox" name="vehicle3" value="mercedes">Mercedes
+  <input type="checkbox" name="vehicle4" value="bentley">Bentley
+  <input type="checkbox" name="vehicle5" value="ford">Ford
+  <input type="checkbox" name="vehicle6" value="lexus">Lexus
+</form>
+  
+</form> 
+  <br><br>
+
+</form> 
+<table>
+<tr>
+<th>Requirements: </th>
+
+<td><textarea rows="5" cols="50">
+
+</textarea></td>
+</tr>
+</table>
+<br>
+<form action="/action_page.php" target="_blank" method="GET">
+  <input type="submit" value="Submit">
+  </form>
+  </div>
+</body>
+</html>
