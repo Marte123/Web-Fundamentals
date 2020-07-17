@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.submit:hover {
+    background-color: #4CAF50;
+    color: white;}
+.checkbox_button {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+
+ }
+.checkbox_button input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.tick {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+.checkbox_button:hover input ~ .tick {
+    background-color: #cc3399;
+}
+.checkbox_button input:checked ~ .tick {
+    background-color: #2196F3;
+}
+.tick:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.checkbox_button input:checked ~ .tick:after {
+    display: block;
+}
+.checkbox_button.tick:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.radio_button {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio_button input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radio_button:hover input ~ .dot {
+  background-color: #33cccc;
+}
+.radio_button input:checked ~ .dot {
+  background-color: #cc3399;
+}
+.dot:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.radio_button input:checked ~ .dot:after {
+  display: block;
+}
+.radio_button.dot:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.centercontent {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 5%;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+</style>
+	<link rel="stylesheet" type="text/css" href="style1.css">
+	<title>Martina's Talevska Website</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+	<header>
+		<h1>Martina Talevska Website</h1>
+		<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="cars.html">Cars</a></li>
+					<li><a href="survey.html">Survey</a></li>
+					<li><a href="http://estudij.um.si">Exercises</a></li>
+				</ul>
+		</nav>
+	</header>
+
+	<div class="centercontent">
+		<div class="surveylist" style="margin: 15%;">
+			<h2 class="hs" style="margin:0px;">Survey</h2>
+			<form class="form">
+				<label class="form_label">Fullname:</label><br/><input type="text" style="width: 95%;padding: 12px;border: 1px solid #ccc;border-radius: 4px;resize: vertical;"/><br/>
+				<label class="form_label">City:</label> <br/> <input list="cities" style="width: 95%;padding: 12px;border: 1px solid #ccc;border-radius: 4px;resize: vertical;" name="city">
+  <datalist id="cities">
+    <option value="Ljubljana">
+    <option value="Maribor">
+    <option value="Celje">
+    <option value="Koper">
+    <option value="Ptuj">
+  </datalist></br>
+				<label class="form_label">E-mail:</label><br/><input type="text" style="width: 95%;padding: 12px;border: 1px solid#33cccc;border-radius: 4px;resize: vertical;"/><br/>
+				<label class="form_label">Vehicle type:</label><br/>
+					<label class="radio_button" for="hatchback"><input type="radio" name="type" id="hatchback">Hatchback<span class="dot"></span></label>
+					<label class="radio_button" for="limousine"><input type="radio" name="type" id="limousine">Limousine<span class="dot"></span></label>
+					<label class="radio_button" for="truck"><input type="radio" name="type" id="truck">Truck<span class="dot"></span></label>
+					<label class="radio_button" for="suv"><input type="radio" name="type" id="suv">SUV<span class="dot"></span></label>
+				<br/>
+				<label class="form_label">Favourite Brands:</label><br/>
+					<label class="checkbox_button" for="Audi"><input name="brand" type="checkbox" checked="checked" id="Audi">Audi<span class="tick"></label>
+					<label class="checkbox_button" for="BMW"><input name="brand" type="checkbox" checked="checked" id="BMW">BMW<span class="tick"></label>
+					<label class="checkbox_button" for="Ford"><input name="brand" type="checkbox" checked="checked" id="Ford">Ford<span class="tick"></label>
+					<label class="checkbox_button" for="Honda"><input name="brand" type="checkbox" checked="checked" id="Honda">Honda<span class="tick"></label>
+					<label class="checkbox_button" for="Mercedes"><input name="brand" type="checkbox" checked="checked" id="Mercedes">Mercedes<span class="tick"></label>
+					<label class="checkbox_button" for="Renault"><input name="brand" type="checkbox" checked="checked" id="Renault">Renault<span class="tick"></label>
+				<br/>
+				<label class="form_label">Requirements:</label><br/><textarea class="textarea" style="resize: none; width: 100%;height: 150px;padding: 12px 20px;margin: 8px 0;display: inline-block; border: 2px solid #33cccc; border-radius: 4px;box-sizing: border-box; outline: none; box-shadow: 0 0 0 2px #006699;" rows="5" cols="50"></textarea><br/>
+				<form action="/action_page.php" target="_blank" method="GET">
+				<input type="submit" value="Submit"class="submit" style=" 
+				width:100%;border-radius: 4px;border: none;color: white;padding: 16px; text-decoration: bold;margin: 4px 2px;cursor: pointer;background-color: #006699;margin-left: 40%;"/>
+			</form>
+		</div>
+	<div id="content">
+</body>
+</html>

@@ -1,0 +1,256 @@
+
+  html {
+    background-color: #006699;
+    margin: 0px;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 15px;
+	box-sizing: border-box;
+}
+body {
+    background-color: #33cccc;
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+h1 { color:  #00e6e6; 
+	font-family: 'Lobster', cursive;
+ font-size: 36px;
+ font-weight: normal; line-height: 48px; 
+ margin: 0 0 18px; 
+ text-shadow: 1px 0 0 #fff;
+  }
+header {
+    background-color: #006699;
+    text-align: center;
+    padding: 10px;
+	color: white;
+  	position: fixed;
+ 	top: 0;
+  	width: 100%;
+}
+nav {
+    overflow: hidden;
+    background-color: #333;
+}
+ul
+{
+ list-style-type: none;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color:#33cccc;
+    text-align: center;
+    padding:16px;
+    text-decoration: none;
+}
+
+
+nav a:hover {
+    background-color: #ddd;
+    color: #006699;
+}
+
+
+.content {
+    width: 100%; 
+    margin: auto%;
+	text-align: center;
+	padding:0;
+
+}
+.card_pic {
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 25%;
+}
+.pic {
+text-align: center;
+width: 100%;
+padding: 0;
+margin:0;
+}
+h2{
+	margin: 10px;
+	background-color: #33cccc;
+    color: white;
+	text-align: center;
+}
+.card_video{
+    background-color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: -20%; 
+    margin-right: 25%;
+    margin-left: 25%
+}
+.video {
+text-align: center;
+width: 100%;
+padding: 0;
+margin:0;
+}
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+}
+p{
+	margin:5px;
+	background-color: lightblue;
+    width: 330px;
+    height: 120px;
+    overflow: scroll;
+	
+}
+h3{
+	padding:10px;
+	margin-left:3%;
+	margin-right: 25%;
+	margin-top:10%;
+	height: 20px;
+	background-color:white;
+	color:#006699; 
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 15px;
+	width: 310px;
+}
+
+.description{
+	margin:0px;
+	padding:5px;
+	height:160px;
+
+}
+.row{
+	width: 80%;
+	margin:0 auto;
+	margin:5%;
+	margin-left: 12%;
+
+}
+.content_cars{
+	width: 100%;
+
+}
+.card_product {
+    float: left;
+    width: 25%;
+    padding: 5px;
+    height: 160px;
+    display: block;
+    text-align: center;
+    margin:2%;
+    margin-top: 10%;
+
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media screen and (max-width: 500px) {
+    .column {
+        width: 100%;
+    }
+#avto {
+	width: 100%;
+	height: 200px;
+	margin:0;
+
+}
+.description 
+{
+	margin:5px;
+	background-color: lightblue;
+    width: 250px;
+    height: 170px;
+    overflow: scroll;
+	
+}
+.surveylist{
+	margin-top: 10%;
+}
+.form{
+	margin-top: 5%;
+}
+.centercontent {
+	margin-top: 0%;
+	margin-left: 15%;
+    margin: auto;
+    width: 60%;
+    background-color: white;
+    border: 3px solid white;
+    padding: 10px;
+}
+div.centercontent {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #cc3399;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #cc3399;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+	width: 100%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 
+    text-decoration:bold ;
+    margin:10px;
+    cursor: pointer;
+}
+input.submit:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+@media screen and (max-width: 800px){
+	.card_product{  
+		width: 35%;
+		height: 130px;
+	}
+	.h3{
+		margin-top: 20%;
+	}
+	.card_pic{
+		padding: 60px;
+		margin:15%;
+	}
+	.card_video{
+		padding: 60px;
+		margin-top: -10%;
+		margin-right: 15%;
+		margin-left: 15%;
+	}
+	.centercontent{
+		margin-top:20%;
+	}
+	
+}
+
+
+
